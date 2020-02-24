@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.StudentMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.pojo.Student">
+        <id column="id"  property="id" />
+        <result column="student_id"  property="student_id" />
+        <result column="name"  property="name" />
+        <result column="age"  property="age" />
+        <result column="sex"  property="sex" />
+        <result column="birthday"  property="birthday" />
+        <result column="password"  property="password" />
+        <result column="countothers"  property="countothers" />
+        <collection property="others" column="others" ofType="com.example.demo.pojo.Others">
+            <result column="student_id" property="student_id"/>
+            <result column="name" property="name"/>
+<!--            <result column="student_id" property="student_id"/>-->
+            <result column="desc" property="desc"/>
+        </collection>
+    </resultMap>
+<!--    <sql id="Base_Column_List">-->
+<!--        id, student_id, name, age, sex, birthday-->
+<!--    </sql>-->
+    <select id="selectByPrimaryKey"  resultMap="BaseResultMap">
+<!--        select-->
+<!--        <include refid="Base_Column_List" />-->
+<!--        from student-->
+<!--        where id = #{id}-->
+            select student.id,student.name,student.sex,student.birthday,student.age,others.*
+            from student left join others on student.student_id=others.student_id where student.id=#{id} and (student.name like concat('%',#{keyword},'%') or student.sex like concat('%',#{keyword},'%'))
+    </select>
+    <select id="selectByothers" resultMap="BaseResultMap">
+         select student.id,student.name,student.sex,student.birthday,student.age,(select count(1) from others) as countothers,others.*
+         from student left join others on student.student_id=others.student_id where student.id=#{id} and (student.name like concat('%',#{keyword},'%') or student.sex like concat('%',#{keyword},'%'))
+    </select>
+    <select id="findByuid" resultMap="BaseResultMap">
+         select student.id,student.name,student.sex,student.birthday,student.age,student.password
+         from student  where student.id=#{id}
+    </select>
+    <select id="findByname" resultMap="BaseResultMap">
+         select student.id,student.name,student.sex,student.birthday,student.age,student.password
+         from student  where student.name=#{name}
+    </select>
+</mapper>

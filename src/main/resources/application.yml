@@ -1,0 +1,48 @@
+server:
+  port: 8080
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+#    add-mappings: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jackson:
+    time-zone: GMT+8
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.example.demo.pojo
+  configuration:
+    #驼峰配置
+    map-underscore-to-camel-case: false
+#swagger 配置
+swagger:
+  title: API示例
+  desc: 基于springBoot编写的RESful-API
+  version: 0.0.1.SNAPSHOT
+  termsOfServiceUrl: javascript:void(0)
+  license: Apache 2.0
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  basePackage: com.example.demo
+  groupName: 测试项目
+  contactName: wuxiao
+  contactUrl: https://github.com/
+  contactEmail: 492093890@qq.com
+
+#配置日志
+logging:
+  level:
+    #不同目录下的日志可配置不同级别
+    org.springfromework.web: INFO
+    org.hibernate: ERROR
+    #打印sql语句日志
+    com.example.demo.dao: debug
+  #采用相对路径方式将日志文件输出到【log/myspringboot.log】
+  file:
+    name: log/myspringboot.log
+  #采用绝对路径方式将日志文件输出到【/Users/wang/Downloads/myspringboot.log】
+  #file: /Users/wang/Downloads/myspringboot.log
+
