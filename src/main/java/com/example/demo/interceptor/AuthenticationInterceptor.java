@@ -69,7 +69,15 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 if (user == null) {
                     throw new RuntimeException("用户不存在，请重新登录");
                 }
-                // 验证 token
+                else{
+                    logger.info("======---------将userid放到requert.setAttribute属性中------------=======");
+                    // 将userId写入到request请求中
+                   // httpServletRequest.setAttribute("UserId", user.getId());
+                    httpServletRequest.setAttribute("UserToken", token);
+                    httpServletRequest.setAttribute("UserId", user.getId());
+                }
+
+                // 验证 token，验证
                 JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(user.getPassword())).build();
                 try {
                     DecodedJWT jwt= jwtVerifier.verify(token);

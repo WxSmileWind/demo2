@@ -1,7 +1,9 @@
 package com.example.demo.dao;
 import com.example.demo.pojo.Student;          //引入实体类
+import com.example.demo.pojo.TbMessage;
 import org.apache.ibatis.annotations.*;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface StudentMapper {
@@ -56,4 +58,31 @@ public interface StudentMapper {
             +"</script>")
     List<Student> findlistbyzj_Select(@Param("status") Integer status);
 
+
+    /**
+     * 查询 分页查询
+     * @author 吴啸
+     * @date 2020/02/26
+     **/
+    List<Student> pageList(int start, int pagesize, String keyword);
+
+
+    /**
+     * 查询 分页查询
+     * @author 吴啸
+     * @date 2020/02/26
+     **/
+    List<Student> pageListbyothers(int start, int pagesize, String keyword);
+
+    /**
+     * 查询 分页查询 count
+     * @author 吴啸
+     * @date 2020/02/26
+     **/
+    int pageListCount(int start,int pagesize,String keyword);
+
+    /*Xml方式查询*/
+     Map<String,Object> selectbyname(int start, int pagesize, String keyword);
+
+     
 }

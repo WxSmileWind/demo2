@@ -10,13 +10,35 @@
         <result column="birthday"  property="birthday" />
         <result column="password"  property="password" />
         <result column="countothers"  property="countothers" />
-        <collection property="others" column="others" ofType="com.example.demo.pojo.Others">
-            <result column="student_id" property="student_id"/>
-            <result column="name" property="name"/>
-<!--            <result column="student_id" property="student_id"/>-->
-            <result column="desc" property="desc"/>
+
+        <!--collection嵌套子查询-->
+        <collection property="others" column="student_id" select="getStudentId">
+            <id column="id"  property="id" />
         </collection>
+
+<!--        <collection property="others" column="others" ofType="com.example.demo.pojo.Others">-->
+<!--            <result column="student_id" property="student_id"/>-->
+<!--            <result column="name" property="name"/>-->
+<!--&lt;!&ndash;            <result column="student_id" property="student_id"/>&ndash;&gt;-->
+<!--            <result column="desc" property="desc"/>-->
+<!--        </collection>-->
     </resultMap>
+
+    <resultMap id="OthersMap" type="com.example.demo.pojo.Others">
+        <result column="name"  property="oname" />
+        <result column="desc"  property="odesc" />
+        <result column="student_id"  property="ostudent_id" />
+    </resultMap>
+
+    <!--collection嵌套查询外表信息-->
+    <select id="getStudentId" resultType="com.example.demo.pojo.Others" parameterType="java.lang.Long" >
+      SELECT
+        *
+      FROM others
+      WHERE student_id = #{student_id}
+      </select>
+
+
 <!--    <sql id="Base_Column_List">-->
 <!--        id, student_id, name, age, sex, birthday-->
 <!--    </sql>-->
@@ -39,5 +61,52 @@
     <select id="findByname" resultMap="BaseResultMap">
          select student.id,student.name,student.sex,student.birthday,student.age,student.password
          from student  where student.name=#{name}
+    </select>
+
+
+    <sql id="Base_Column_List">
+                a.id,
+                a.name,
+                a.age,
+                a.sex,
+                a.birthday,
+                b.*
+    </sql>
+
+    <select id="pageList"  resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+        from student as a left join others as b on a.student_id=b.student_id
+        <if test ='null != keyword and keyword!=""'>
+            where a.name like concat('%',#{keyword},'%')
+        </if>
+        ORDER BY a.ID ASC
+        LIMIT #{start}, #{pagesize}
+    </select>
+
+    <sql id="Base_Column_Listbyothers">
+                a.id,
+                a.name,
+                a.age,
+                a.sex,
+                a.birthday,
+                a.student_id
+    </sql>
+
+    <select id="pageListbyothers"  resultMap="BaseResultMap">
+        select  <include refid="Base_Column_Listbyothers" />
+        from student as a
+        <if test ='null != keyword and keyword!=""'>
+            where a.name like concat('%',#{keyword},'%')
+        </if>
+        ORDER BY a.ID ASC
+        LIMIT #{start}, #{pagesize}
+    </select>
+
+    <select id="pageListCount" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM student
+        <if test ='null != keyword and keyword!=""'>
+            where name like concat('%',#{keyword},'%')
+        </if>
     </select>
 </mapper>

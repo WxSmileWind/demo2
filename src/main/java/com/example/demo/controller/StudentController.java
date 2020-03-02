@@ -4,7 +4,9 @@ import com.example.demo.Response_Message.RespCode;
 import com.example.demo.Response_Message.RespEntity;
 import com.example.demo.annotation.UserLoginToken;
 import com.example.demo.dao.StudentMapper;   //引用mapper
+import com.example.demo.dao.TbMessageMapper;
 import com.example.demo.pojo.Student;                            //引用实体类
+import com.example.demo.pojo.TbMessage;
 import com.example.demo.service.TokenService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -16,19 +18,24 @@ import org.springframework.beans.factory.annotation.Autowired;   //引入自动�
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;                //引入控制器Controller
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;                //引用List集合
 import java.util.Map;
 import java.util.TreeMap;
 
 @Controller                           //控制器
-@Api(tags = "测试接口")
+@Api(tags = "学生测试接口")
 @RequestMapping("/student")
 @RestController                       //responsebody 控制器
 public class StudentController {
 
 
     private StudentMapper studentMapper;
+    @Resource
+    private TbMessageMapper tbMessageMapper;
     private TokenService tokenService;
     protected static final Logger logger = LoggerFactory.getLogger(DemoApplication.class);
 
@@ -72,8 +79,8 @@ public class StudentController {
         return new RespEntity(RespCode.SUCCESS,students);
     }
     //设置方法结果缓存
-    @Cacheable(value = "emp" ,key = "targetClass + methodName +#p0")
-    @ApiOperation(value = "测试 - GET请求参数")
+    @Cacheable(value = "emp" ,key = "targetClass + methodName +#id",condition="#id==1")
+    @ApiOperation(value = "根据id获取学生个人信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "编号", required = true, paramType = "query")
     })
@@ -82,6 +89,7 @@ public class StudentController {
     public RespEntity listoneStudent(Long id) {
         // List<Student> students = studentMapper.Sel();
         List<Student> students= studentMapper.findonebyothers(id);
+
         logger.info("数据库查询结果："+(new RespEntity(RespCode.SUCCESS,students)).toString());
 //        Map<String,List<Student>> map = new TreeMap<>();
         return new RespEntity(RespCode.SUCCESS,students);
@@ -192,8 +200,38 @@ public class StudentController {
 
     @UserLoginToken
     @GetMapping("/getMessage")
-    public RespEntity getMessage(){
+    public RespEntity getMessage(HttpServletRequest request){
+        logger.info("======---------userid:"+request.getAttribute("UserId")+"------------=======");
         return  new RespEntity(RespCode.PassToken);
+    }
+
+
+    /**
+     * 查询 分页查询
+     * @author 吴啸
+     * @date 2020/02/26
+     **/
+    @RequestMapping("/pageList")
+    public Map<String, Object> pageList(@RequestParam(required = false, defaultValue = "0") int currentpage,
+                                        @RequestParam(required = false) String keyword,
+                                        @RequestParam(required = false, defaultValue = "10") int pagesize) {
+        int start=(currentpage-1)*pagesize;
+        System.out.println("start:"+start);
+        System.out.println("pagesize:"+pagesize);
+        System.out.println("keyword:"+keyword);
+        //列表list
+        List<Student> pageList = studentMapper.pageListbyothers(start, pagesize,keyword);
+        //总条数total
+        int totalCount = studentMapper.pageListCount(start, pagesize,keyword);
+        // result
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("pageList", pageList);
+        result.put("totalCount", totalCount);
+
+        return result;
+       // System.out.println("currentpage:"+currentpage);
+       // System.out.println("pagesize:"+pagesize);
+        //return tbMessageService.pageList(currentpage, pagesize,username);
     }
 
 }
