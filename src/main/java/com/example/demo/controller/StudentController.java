@@ -3,34 +3,53 @@ import com.example.demo.DemoApplication;
 import com.example.demo.Response_Message.RespCode;
 import com.example.demo.Response_Message.RespEntity;
 import com.example.demo.annotation.UserLoginToken;
+import com.example.demo.config.ymConfig;
 import com.example.demo.dao.StudentMapper;   //引用mapper
 import com.example.demo.dao.TbMessageMapper;
 import com.example.demo.pojo.Student;                            //引用实体类
 import com.example.demo.pojo.TbMessage;
 import com.example.demo.service.TokenService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;   //引入自动装载 @Autowired
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;                //引入控制器Controller
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.List;                //引用List集合
-import java.util.Map;
-import java.util.TreeMap;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 @Controller                           //控制器
 @Api(tags = "学生测试接口")
 @RequestMapping("/student")
 @RestController                       //responsebody 控制器
 public class StudentController {
+
+
+    @Value("${menu.img.uploadPath}")
+    private String uploadPath;
+
+    @Value("${menu.img.uploadUrl}")
+    private String uploadUrl;
+
+    @Value("${menu.img.zipPath}")
+    private String zipPath;
+
+    @Value("${menu.img.zipUrl}")
+    private String zipUrl;
 
 
     private StudentMapper studentMapper;
@@ -233,5 +252,66 @@ public class StudentController {
        // System.out.println("pagesize:"+pagesize);
         //return tbMessageService.pageList(currentpage, pagesize,username);
     }
+
+    @ApiOperation(value = "上传图片接口")
+    @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
+    @ResponseBody
+    public RespEntity uploadImage(@ApiParam(value = "图片", required = true) @RequestParam("file") MultipartFile file) {
+        logger.info("进入上传接口");
+        if (file.isEmpty()) {
+            logger.info("上传文件不能为空！");
+        }
+        return uploadImg(file);
+    }
+
+    /**
+     * 上传图片
+     * @Description:
+     * @param: MultipartRequest file, HttpServletRequest request,  IdForm form
+     * @return：RestResult<Object>
+     * @author: zhanghd
+     * @date: 2020年3月4日 下午2:39:24
+     */
+    public RespEntity uploadImg(@RequestParam("file") MultipartFile  file) {
+        String oldName = file.getOriginalFilename();
+        String imgType = oldName.substring(oldName.lastIndexOf("."), oldName.length());
+        String name = UUID.randomUUID().toString()+imgType; // 图片名
+        String realpath = uploadPath;
+        String fileName = writeUploadFile(file, realpath, name);
+        String url = uploadUrl + fileName;
+        return  new RespEntity(RespCode.SUCCESS,url);
+    }
+
+    /**
+     * 文件上传处理
+     * @Description: 上传图片
+     * @param:MultipartFile file, String realpath, String fileName
+     * @return：String fileName
+     * @author: zhanghd
+     * @date: 2018年12月21日 下午5:00:56
+     */
+    public static String writeUploadFile(MultipartFile file, String realpath, String fileName) {
+        File fileDir = new File(realpath);
+        if (!fileDir.exists())
+            fileDir.mkdirs();
+
+        InputStream input = null;
+        FileOutputStream fos = null;
+        try {
+            input = file.getInputStream();
+            fos = new FileOutputStream(realpath + "/" + fileName);
+            IOUtils.copy(input, fos);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            IOUtils.closeQuietly(input);
+            IOUtils.closeQuietly(fos);
+        }
+        return fileName;
+    }
+
+
+
 
 }
