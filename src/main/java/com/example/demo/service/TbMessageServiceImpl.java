@@ -59,9 +59,6 @@ public class TbMessageServiceImpl implements TbMessageService {
 
     @Override
     public Map<String,Object> pageList(int currentpage, int pagesize,String username) {
-
-
-
         int start=(currentpage-1)*pagesize;
         System.out.println("===============start:"+start);
         //列表list

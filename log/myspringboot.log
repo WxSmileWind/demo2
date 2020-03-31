@@ -1,16 +1,426 @@
-2020-03-18 10:31:56.029  INFO 27120 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 27120 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
-2020-03-18 10:31:56.041  INFO 27120 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2020-03-18 10:31:57.406  INFO 27120 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-03-18 10:31:57.713  INFO 27120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-2020-03-18 10:31:57.725  INFO 27120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-18 10:31:57.726  INFO 27120 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
-2020-03-18 10:31:57.937  INFO 27120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-18 10:31:57.938  INFO 27120 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1820 ms
-2020-03-18 10:31:57.960  INFO 27120 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
-2020-03-18 10:31:58.570  INFO 27120 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-03-18 10:31:58.882  INFO 27120 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2020-03-18 10:31:58.919  INFO 27120 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-03-18 10:31:58.938  INFO 27120 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-03-18 10:31:58.967  INFO 27120 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-03-18 10:31:59.165  INFO 27120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-2020-03-18 10:31:59.169  INFO 27120 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.625 seconds (JVM running for 5.17)
+2020-03-30 14:40:51.872  INFO 14672 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 14672 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 14:40:51.883  INFO 14672 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 14:40:53.167  INFO 14672 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 14:40:53.459  INFO 14672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2020-03-30 14:40:53.469  INFO 14672 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 14:40:53.470  INFO 14672 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 14:40:53.628  INFO 14672 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 14:40:53.629  INFO 14672 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1673 ms
+2020-03-30 14:40:53.652  INFO 14672 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 14:40:54.233  INFO 14672 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 14:40:54.575  INFO 14672 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 14:40:54.609  INFO 14672 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 14:40:54.625  INFO 14672 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 14:40:54.656  INFO 14672 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 14:40:54.871  INFO 14672 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-03-30 14:40:54.878  INFO 14672 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-03-30 14:40:54.882 ERROR 14672 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+
+2020-03-30 14:40:54.884  INFO 14672 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-03-30 14:41:41.820  INFO 22876 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 22876 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 14:41:41.824  INFO 22876 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 14:41:43.045  INFO 22876 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 14:41:43.295  INFO 22876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 14:41:43.302  INFO 22876 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 14:41:43.303  INFO 22876 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 14:41:43.451  INFO 22876 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 14:41:43.452  INFO 22876 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1561 ms
+2020-03-30 14:41:43.477  INFO 22876 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 14:41:43.988  INFO 22876 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 14:41:44.277  INFO 22876 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 14:41:44.310  INFO 22876 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 14:41:44.323  INFO 22876 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 14:41:44.349  INFO 22876 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 14:41:44.560  INFO 22876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 14:41:44.563  INFO 22876 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.193 seconds (JVM running for 4.255)
+2020-03-30 14:47:39.696  INFO 13164 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 13164 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 14:47:39.704  INFO 13164 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 14:47:41.967  INFO 13164 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 14:47:42.299  INFO 13164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 14:47:42.311  INFO 13164 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 14:47:42.311  INFO 13164 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 14:47:42.490  INFO 13164 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 14:47:42.491  INFO 13164 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2697 ms
+2020-03-30 14:47:42.526  INFO 13164 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 14:47:43.198  INFO 13164 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 14:47:43.542  INFO 13164 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 14:47:43.589  INFO 13164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 14:47:43.615  INFO 13164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 14:47:43.648  INFO 13164 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 14:47:43.889  INFO 13164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 14:47:43.894  INFO 13164 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 4.765 seconds (JVM running for 6.182)
+2020-03-30 14:49:35.833  INFO 20620 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 20620 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 14:49:35.837  INFO 20620 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 14:49:37.410  INFO 20620 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 14:49:37.680  INFO 20620 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 14:49:37.689  INFO 20620 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 14:49:37.689  INFO 20620 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 14:49:37.829  INFO 20620 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 14:49:37.830  INFO 20620 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1924 ms
+2020-03-30 14:49:37.862  INFO 20620 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 14:49:38.374  INFO 20620 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 14:49:38.646  INFO 20620 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 14:49:38.677  INFO 20620 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 14:49:38.689  INFO 20620 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 14:49:38.714  INFO 20620 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 14:49:38.901  INFO 20620 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 14:49:38.905  INFO 20620 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.602 seconds (JVM running for 4.765)
+2020-03-30 15:00:39.347  INFO 23864 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 23864 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 15:00:39.351  INFO 23864 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 15:00:41.022  INFO 23864 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 15:00:41.281  INFO 23864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 15:00:41.289  INFO 23864 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 15:00:41.289  INFO 23864 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 15:00:41.428  INFO 23864 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 15:00:41.429  INFO 23864 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2021 ms
+2020-03-30 15:00:41.462  INFO 23864 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 15:00:42.147  INFO 23864 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 15:00:42.427  INFO 23864 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 15:00:42.460  INFO 23864 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 15:00:42.474  INFO 23864 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 15:00:42.499  INFO 23864 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 15:00:42.686  INFO 23864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 15:00:42.690  INFO 23864 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.784 seconds (JVM running for 4.89)
+2020-03-30 15:02:39.384  INFO 23864 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:02:39.385  INFO 23864 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-30 15:02:39.392  INFO 23864 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-03-30 15:02:39.402  INFO 23864 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:02:39.403  INFO 23864 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:02:44.705  INFO 23864 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:02:44.706  INFO 23864 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:03:05.807  INFO 25016 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 25016 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 15:03:05.811  INFO 25016 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 15:03:07.393  INFO 25016 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 15:03:07.650  INFO 25016 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 15:03:07.657  INFO 25016 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 15:03:07.658  INFO 25016 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 15:03:07.800  INFO 25016 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 15:03:07.800  INFO 25016 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1922 ms
+2020-03-30 15:03:07.823  INFO 25016 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 15:03:08.476  INFO 25016 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 15:03:08.753  INFO 25016 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 15:03:08.784  INFO 25016 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 15:03:08.796  INFO 25016 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 15:03:08.824  INFO 25016 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 15:03:09.005  INFO 25016 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 15:03:09.009  INFO 25016 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.692 seconds (JVM running for 4.841)
+2020-03-30 15:03:13.147  INFO 25016 --- [http-nio-8086-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:03:13.148  INFO 25016 --- [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-30 15:03:13.154  INFO 25016 --- [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-03-30 15:03:13.164  INFO 25016 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:03:13.164  INFO 25016 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:03:36.321  INFO 23324 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 23324 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 15:03:36.324  INFO 23324 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 15:03:37.940  INFO 23324 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 15:03:38.193  INFO 23324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 15:03:38.200  INFO 23324 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 15:03:38.201  INFO 23324 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 15:03:38.345  INFO 23324 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 15:03:38.345  INFO 23324 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1955 ms
+2020-03-30 15:03:38.380  INFO 23324 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 15:03:39.019  INFO 23324 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 15:03:39.319  INFO 23324 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 15:03:39.355  INFO 23324 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 15:03:39.368  INFO 23324 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 15:03:39.399  INFO 23324 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 15:03:39.596  INFO 23324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 15:03:39.599  INFO 23324 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.724 seconds (JVM running for 4.88)
+2020-03-30 15:03:43.527  INFO 23324 --- [http-nio-8086-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:03:43.528  INFO 23324 --- [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-30 15:03:43.535  INFO 23324 --- [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-03-30 15:03:43.544  INFO 23324 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:03:43.545  INFO 23324 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:33:44.516  INFO 24104 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 24104 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 15:33:44.523  INFO 24104 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 15:33:46.170  INFO 24104 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 15:33:46.445  INFO 24104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 15:33:46.453  INFO 24104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 15:33:46.453  INFO 24104 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 15:33:46.600  INFO 24104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 15:33:46.601  INFO 24104 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2018 ms
+2020-03-30 15:33:46.625  INFO 24104 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 15:33:47.270  INFO 24104 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 15:33:47.569  INFO 24104 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 15:33:47.602  INFO 24104 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 15:33:47.614  INFO 24104 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 15:33:47.639  INFO 24104 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 15:33:47.829  INFO 24104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 15:33:47.833  INFO 24104 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.759 seconds (JVM running for 4.86)
+2020-03-30 15:33:51.834  INFO 24104 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:33:51.835  INFO 24104 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-30 15:33:51.842  INFO 24104 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-03-30 15:33:51.853  INFO 24104 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:33:51.854  INFO 24104 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:33:54.887  INFO 24104 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:33:54.888  INFO 24104 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:33:56.083  INFO 24104 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:33:56.083  INFO 24104 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:33:57.019  INFO 24104 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:33:57.019  INFO 24104 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:34:42.693  INFO 3080 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 3080 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 15:34:42.697  INFO 3080 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 15:34:44.383  INFO 3080 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 15:34:44.631  INFO 3080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 15:34:44.638  INFO 3080 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 15:34:44.638  INFO 3080 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 15:34:44.778  INFO 3080 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 15:34:44.778  INFO 3080 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2004 ms
+2020-03-30 15:34:44.801  INFO 3080 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 15:34:45.477  INFO 3080 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 15:34:45.770  INFO 3080 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 15:34:45.801  INFO 3080 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 15:34:45.813  INFO 3080 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 15:34:45.838  INFO 3080 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 15:34:46.042  INFO 3080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 15:34:46.046  INFO 3080 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.793 seconds (JVM running for 4.903)
+2020-03-30 15:34:49.759  INFO 3080 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:34:49.760  INFO 3080 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-30 15:34:49.767  INFO 3080 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-03-30 15:34:49.778  INFO 3080 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:34:49.778  INFO 3080 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:34:49.975 ERROR 3080 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.ExceptionInInitializerError
+2020-03-30 15:36:20.435  INFO 5312 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 5312 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 15:36:20.439  INFO 5312 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 15:36:22.063  INFO 5312 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 15:36:22.317  INFO 5312 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 15:36:22.325  INFO 5312 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 15:36:22.325  INFO 5312 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 15:36:22.502  INFO 5312 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 15:36:22.502  INFO 5312 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2003 ms
+2020-03-30 15:36:22.535  INFO 5312 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 15:36:23.198  INFO 5312 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 15:36:23.496  INFO 5312 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 15:36:23.527  INFO 5312 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 15:36:23.540  INFO 5312 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 15:36:23.565  INFO 5312 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 15:36:23.755  INFO 5312 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 15:36:23.758  INFO 5312 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.739 seconds (JVM running for 4.892)
+2020-03-30 15:36:28.545  INFO 5312 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:36:28.545  INFO 5312 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-30 15:36:28.551  INFO 5312 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-30 15:36:28.561  INFO 5312 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:36:28.562  INFO 5312 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:36:45.119  INFO 5312 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:36:45.120  INFO 5312 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:40:15.338  INFO 3328 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 3328 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 15:40:15.342  INFO 3328 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 15:40:17.026  INFO 3328 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 15:40:17.284  INFO 3328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 15:40:17.292  INFO 3328 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 15:40:17.292  INFO 3328 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 15:40:17.432  INFO 3328 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 15:40:17.432  INFO 3328 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2018 ms
+2020-03-30 15:40:17.467  INFO 3328 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 15:40:18.130  INFO 3328 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 15:40:18.404  INFO 3328 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 15:40:18.441  INFO 3328 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 15:40:18.453  INFO 3328 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 15:40:18.479  INFO 3328 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 15:40:18.667  INFO 3328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 15:40:18.670  INFO 3328 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.813 seconds (JVM running for 4.948)
+2020-03-30 15:40:27.387  INFO 3328 --- [http-nio-8086-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:40:27.388  INFO 3328 --- [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-30 15:40:27.394  INFO 3328 --- [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-03-30 15:40:27.404  INFO 3328 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:40:27.405  INFO 3328 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:40:29.085  INFO 3328 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:40:29.085  INFO 3328 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:40:30.114  INFO 3328 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:40:30.115  INFO 3328 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:40:31.170  INFO 3328 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:40:31.170  INFO 3328 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:40:32.258  INFO 3328 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:40:32.259  INFO 3328 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:40:33.156  INFO 3328 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:40:33.157  INFO 3328 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:40:35.961  INFO 3328 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:40:35.961  INFO 3328 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:40:37.092  INFO 3328 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:40:37.093  INFO 3328 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:40:39.134  INFO 3328 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:40:39.134  INFO 3328 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:01.280  INFO 3328 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:01.281  INFO 3328 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:02.322  INFO 3328 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:02.323  INFO 3328 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:02.484 ERROR 3328 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.ExceptionInInitializerError
+2020-03-30 15:46:03.597  INFO 3328 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:03.597  INFO 3328 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:03.708 ERROR 3328 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:46:04.586  INFO 3328 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:04.586  INFO 3328 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:04.701 ERROR 3328 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:46:07.850  INFO 3328 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:07.851  INFO 3328 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:07.969 ERROR 3328 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:46:45.296  INFO 3328 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:45.296  INFO 3328 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:45.444 ERROR 3328 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:46:46.127  INFO 3328 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:46.128  INFO 3328 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:46.242 ERROR 3328 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:46:46.990  INFO 3328 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:46.990  INFO 3328 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:47.131 ERROR 3328 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:46:47.778  INFO 3328 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:47.778  INFO 3328 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:47.904 ERROR 3328 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:46:48.570  INFO 3328 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:48.571  INFO 3328 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:48.693 ERROR 3328 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:46:49.452  INFO 3328 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:46:49.453  INFO 3328 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:46:49.562 ERROR 3328 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:47:02.453  INFO 22956 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 22956 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 15:47:02.459  INFO 22956 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 15:47:04.039  INFO 22956 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 15:47:04.295  INFO 22956 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 15:47:04.303  INFO 22956 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 15:47:04.304  INFO 22956 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 15:47:04.467  INFO 22956 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 15:47:04.467  INFO 22956 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1941 ms
+2020-03-30 15:47:04.499  INFO 22956 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 15:47:05.187  INFO 22956 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 15:47:05.461  INFO 22956 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 15:47:05.497  INFO 22956 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 15:47:05.509  INFO 22956 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 15:47:05.532  INFO 22956 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 15:47:05.736  INFO 22956 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 15:47:05.740  INFO 22956 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.742 seconds (JVM running for 4.901)
+2020-03-30 15:47:10.136  INFO 22956 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:47:10.137  INFO 22956 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-30 15:47:10.143  INFO 22956 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-03-30 15:47:10.154  INFO 22956 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:10.154  INFO 22956 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:14.081  INFO 22956 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:14.082  INFO 22956 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:15.449  INFO 22956 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:15.449  INFO 22956 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:16.494  INFO 22956 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:16.495  INFO 22956 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:17.492  INFO 22956 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:17.492  INFO 22956 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:18.453  INFO 22956 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:18.453  INFO 22956 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:19.334  INFO 22956 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:19.334  INFO 22956 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:20.252  INFO 22956 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:20.252  INFO 22956 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:21.134  INFO 22956 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:21.134  INFO 22956 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:24.456  INFO 22956 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:24.457  INFO 22956 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:25.387  INFO 22956 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:47:25.388  INFO 22956 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:47:25.516 ERROR 22956 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.ExceptionInInitializerError
+2020-03-30 15:48:07.043  INFO 22956 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:48:07.043  INFO 22956 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:48:07.176 ERROR 22956 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:48:07.841  INFO 22956 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:48:07.842  INFO 22956 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:48:07.966 ERROR 22956 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:48:08.599  INFO 22956 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:48:08.600  INFO 22956 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:48:08.753 ERROR 22956 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:48:09.345  INFO 22956 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:48:09.345  INFO 22956 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:48:09.468 ERROR 22956 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:51:14.810  INFO 22956 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:51:14.810  INFO 22956 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:51:14.928 ERROR 22956 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.lib.Res$StringBundleHolder
+2020-03-30 15:53:36.056  INFO 12340 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 12340 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 15:53:36.059  INFO 12340 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 15:53:37.689  INFO 12340 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 15:53:37.941  INFO 12340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 15:53:37.949  INFO 12340 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 15:53:37.949  INFO 12340 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 15:53:38.131  INFO 12340 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 15:53:38.132  INFO 12340 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2013 ms
+2020-03-30 15:53:38.183  INFO 12340 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 15:53:38.869  INFO 12340 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 15:53:39.153  INFO 12340 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 15:53:39.191  INFO 12340 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 15:53:39.204  INFO 12340 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 15:53:39.229  INFO 12340 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 15:53:39.427  INFO 12340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 15:53:39.430  INFO 12340 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.81 seconds (JVM running for 5.031)
+2020-03-30 15:53:42.636  INFO 12340 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:53:42.637  INFO 12340 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-30 15:53:42.645  INFO 12340 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-30 15:53:42.657  INFO 12340 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:42.658  INFO 12340 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:43.961  INFO 12340 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:43.961  INFO 12340 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:44.821  INFO 12340 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:44.821  INFO 12340 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:45.629  INFO 12340 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:45.629  INFO 12340 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:46.390  INFO 12340 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:46.391  INFO 12340 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:47.178  INFO 12340 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:47.179  INFO 12340 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:47.994  INFO 12340 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:47.995  INFO 12340 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:48.814  INFO 12340 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:48.815  INFO 12340 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:49.683  INFO 12340 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:49.684  INFO 12340 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:50.512  INFO 12340 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:50.512  INFO 12340 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:51.366  INFO 12340 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:51.366  INFO 12340 --- [http-nio-8086-exec-1] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:52.212  INFO 12340 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:52.213  INFO 12340 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:53.331  INFO 12340 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:53.332  INFO 12340 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:54.224  INFO 12340 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:54.224  INFO 12340 --- [http-nio-8086-exec-5] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:55.127  INFO 12340 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:55.127  INFO 12340 --- [http-nio-8086-exec-6] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:55.953  INFO 12340 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:55.954  INFO 12340 --- [http-nio-8086-exec-7] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:56.899  INFO 12340 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:56.899  INFO 12340 --- [http-nio-8086-exec-8] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:57.757  INFO 12340 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:57.757  INFO 12340 --- [http-nio-8086-exec-9] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 15:53:58.808  INFO 12340 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 15:53:58.808  INFO 12340 --- [http-nio-8086-exec-10] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 16:33:09.183  INFO 10648 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on wuxiao-PC with PID 10648 (started by wuxiao in D:\java项目\vhr-master\vhr-master\demo2)
+2020-03-30 16:33:09.187  INFO 10648 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-03-30 16:33:10.853  INFO 10648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-30 16:33:11.116  INFO 10648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2020-03-30 16:33:11.124  INFO 10648 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-30 16:33:11.124  INFO 10648 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-30 16:33:11.265  INFO 10648 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-30 16:33:11.265  INFO 10648 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2019 ms
+2020-03-30 16:33:11.290  INFO 10648 --- [main] o.s.boot.web.servlet.RegistrationBean    : Servlet dispatcherServlet was not registered (possibly already registered?)
+2020-03-30 16:33:11.987  INFO 10648 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-30 16:33:12.301  INFO 10648 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-03-30 16:33:12.338  INFO 10648 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-30 16:33:12.353  INFO 10648 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-30 16:33:12.383  INFO 10648 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-30 16:33:12.593  INFO 10648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2020-03-30 16:33:12.597  INFO 10648 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.893 seconds (JVM running for 4.997)
+2020-03-30 16:33:25.476  INFO 10648 --- [http-nio-8086-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 16:33:25.477  INFO 10648 --- [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-30 16:33:25.483  INFO 10648 --- [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-30 16:33:25.501  INFO 10648 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 16:33:25.501  INFO 10648 --- [http-nio-8086-exec-2] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 16:33:27.946  INFO 10648 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 16:33:27.947  INFO 10648 --- [http-nio-8086-exec-3] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
+2020-03-30 16:33:28.967  INFO 10648 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------开始进入拦截器------------=======
+2020-03-30 16:33:28.968  INFO 10648 --- [http-nio-8086-exec-4] com.example.demo.DemoApplication         : ======---------拦截器执行结束------------=======
