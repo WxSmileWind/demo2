@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.Response_Message.RespCode;
 import com.example.demo.Response_Message.RespEntity;
 import com.example.demo.dao.TbMessageMapper;
@@ -18,7 +19,7 @@ import java.util.Map;
  * @date 2020-02-26 14:48:04
  */
 @Service
-public class TbMessageServiceImpl implements TbMessageService {
+public class TbMessageServiceImpl extends ServiceImpl<TbMessageMapper,TbMessage> implements TbMessageService {
 
     @Resource
     private TbMessageMapper tbMessageMapper;
@@ -31,7 +32,9 @@ public class TbMessageServiceImpl implements TbMessageService {
         if (tbMessage == null) {
             return new RespEntity(RespCode.FAILCODE, "必要参数缺失");
         }
-
+        //tbMessageMapper.insert(tbMessage);
+        //tbMessageMapper.selectMapsPage()
+        //tbMessageMapper.insert(tbMessage);
         tbMessageMapper.insert(tbMessage);
         return  new RespEntity(RespCode.SUCCESS);
     }
@@ -40,6 +43,8 @@ public class TbMessageServiceImpl implements TbMessageService {
     @Override
     public RespEntity delete(int id) {
         int ret = tbMessageMapper.delete(id);
+        //tbMessageMapper.updateById(id);
+        //tbMessageMapper.
         return ret>0?new RespEntity(RespCode.SUCCESS):new RespEntity(RespCode.FAILCODE);
     }
 
@@ -47,6 +52,7 @@ public class TbMessageServiceImpl implements TbMessageService {
     @Override
     public RespEntity update(TbMessage tbMessage) {
         int ret = tbMessageMapper.update(tbMessage);
+        //TbMessage tb= tbMessageMapper.selectById(tbMessage.);
         return ret>0?new RespEntity(RespCode.SUCCESS):new RespEntity(RespCode.FAILCODE);
     }
 

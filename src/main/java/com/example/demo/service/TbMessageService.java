@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.demo.Response_Message.RespEntity;
 import com.example.demo.pojo.TbMessage;
 
@@ -10,7 +11,7 @@ import java.util.Map;
  * @author 吴啸
  * @date 2020-02-26 14:48:04
  */
-public interface TbMessageService {
+public interface TbMessageService extends IService<TbMessage> {
 
     /**
      * 新增

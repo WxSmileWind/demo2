@@ -16,7 +16,7 @@ public class Scheduler {
     //每隔2秒执行一次
     @Scheduled(fixedRate = 2000)
     public void testTasks() {
-
+        //System.out.println("定时任务执行时间：" + dateFormat.format(new Date()));
 //        logger.info("定时任务执行时间："+ dateFormat.format(new Date()));
 //        logger.error("定时任务执行时间："+ dateFormat.format(new Date()));
 //        System.out.println("定时任务执行时间：" + dateFormat.format(new Date()));

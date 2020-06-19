@@ -45,24 +45,6 @@ import java.util.*;
 public class StudentController {
 
 
-    // 设备信息
-    public static NetSDKLib.NET_DEVICEINFO_Ex m_stDeviceInfo = new NetSDKLib.NET_DEVICEINFO_Ex();
-    public static NetSDKLib netsdk 		= NetSDKLib.NETSDK_INSTANCE;
-    public static NetSDKLib configsdk 	= NetSDKLib.CONFIG_INSTANCE;
-    private static boolean bInit    = false;
-    private static boolean bLogopen = false;
-
-    // 设备断线通知回调
-    private static DisConnect disConnect       = new DisConnect();
-
-    // 设备断线通知回调
-    //private static DisConnect disConnect       = new DisConnect();
-
-    // 网络连接恢复
-    private static HaveReConnect haveReConnect = new HaveReConnect();
-
-    // 登陆句柄
-    public static NetSDKLib.LLong m_hLoginHandle = new NetSDKLib.LLong(0);
 
     @Value("${menu.img.uploadPath}")
     private String uploadPath;
@@ -195,6 +177,7 @@ public class StudentController {
     @PostMapping
     @GetMapping
     @RequestMapping("/insert_student")
+    @ApiOperation(value = "插入学生")
     //map<key,value>返回
     public RespEntity insert_student(@RequestBody Student student) throws Exception {
             int count= studentMapper.insertParamall(student);
@@ -217,28 +200,14 @@ public class StudentController {
 
 
     //登录
+    @ApiOperation(value = "登陆")
     @PostMapping("/login")
     public RespEntity login(@RequestBody Student student){
 
-        Student userForBase=studentMapper.findByname(student.getName());
-        if(userForBase==null){
-            return  new RespEntity(RespCode.NameError);
-            //jsonObject.put("message","登录失败,用户不存在");
-           // return jsonObject;
-        }else {
-            if (!userForBase.getPassword().equals(student.getPassword())){
-                return  new RespEntity(RespCode.PassError);
-            }else {
-                String token = tokenService.getToken(userForBase);
-                Map<String,Object> map = new TreeMap<>();
-                map.put("token",token);
-                map.put("user",userForBase);
-                return  new RespEntity(RespCode.SUCCESS,map);
-//                jsonObject.put("token", token);
-//                jsonObject.put("user", userForBase);
-//                return jsonObject;
-            }
-        }
+       // Student userForBase=studentMapper.findByname(student.getName());
+        System.out.println("password:"+student.getPassword());
+       //System.out.println("userForBase password:"+userForBase.getPassword());
+        return  new RespEntity(RespCode.SUCCESS,student.getPassword());
     }
 
 
@@ -336,220 +305,6 @@ public class StudentController {
         return fileName;
     }
 
-
-    @PostMapping("/dahuakz")
-    public RespEntity dahuakz(){
-        bInit = netsdk.CLIENT_Init(null,null);
-        String result="";
-        if(!bInit) {
-            System.out.println("Initialize SDK failed");
-            result="Initialize SDK failed";
-            return new RespEntity(RespCode.FAIL,result);
-        }
-
-        // 设置断线重连回调接口，设置过断线重连成功回调函数后，当设备出现断线情况，SDK内部会自动进行重连操作
-        // 此操作为可选操作，但建议用户进行设置
-        netsdk.CLIENT_SetAutoReconnect(haveReConnect, null);
-
-        //设置登录超时时间和尝试次数，可选
-        int waitTime = 5000; //登录请求响应超时时间设置为5S
-        int tryTimes = 1;    //登录时尝试建立链接1次
-        netsdk.CLIENT_SetConnectTime(waitTime, tryTimes);
-
-        NetSDKLib.NET_PARAM netParam = new NetSDKLib.NET_PARAM();
-        netParam.nConnectTime = 10000;      // 登录时尝试建立链接的超时时间
-        netParam.nGetConnInfoTime = 3000;   // 设置子连接的超时时间
-        netsdk.CLIENT_SetNetworkParam(netParam);
-
-        result="设备初始化成功！";
-
-        boolean logins= login_dh("192.168.0.150",37777,"admin","admin123");
-        if(logins==true){
-            result="设备登录成功";
-
-            boolean kz= New_OpenStrobe();
-            if(kz==true){
-                result="设备开闸成功";
-            }
-            else{
-                result="设备开闸失败";
-            }
-            logout();
-            return new RespEntity(RespCode.SUCCESS,result);
-        }
-        else{
-            result="设备登录失败";
-            return new RespEntity(RespCode.FAIL,result);
-        }
-
-        //return new RespEntity(RespCode.SUCCESS,result);
-
-
-    }
-
-
-    @PostMapping("/dahuagz")
-    public  RespEntity dahuagz(){
-        bInit = netsdk.CLIENT_Init(null,null);
-        String result="";
-        if(!bInit) {
-            System.out.println("Initialize SDK failed");
-            result="Initialize SDK failed";
-            return new RespEntity(RespCode.FAIL,result);
-        }
-        // 设置断线重连回调接口，设置过断线重连成功回调函数后，当设备出现断线情况，SDK内部会自动进行重连操作
-        // 此操作为可选操作，但建议用户进行设置
-        netsdk.CLIENT_SetAutoReconnect(haveReConnect, null);
-
-        //设置登录超时时间和尝试次数，可选
-        int waitTime = 5000; //登录请求响应超时时间设置为5S
-        int tryTimes = 1;    //登录时尝试建立链接1次
-        netsdk.CLIENT_SetConnectTime(waitTime, tryTimes);
-
-        NetSDKLib.NET_PARAM netParam = new NetSDKLib.NET_PARAM();
-        netParam.nConnectTime = 10000;      // 登录时尝试建立链接的超时时间
-        netParam.nGetConnInfoTime = 3000;   // 设置子连接的超时时间
-        netsdk.CLIENT_SetNetworkParam(netParam);
-
-        result="设备初始化成功！";
-
-        boolean logins= login_dh("192.168.0.150",37777,"admin","admin123");
-        if(logins==true){
-            result="设备登录成功";
-
-            boolean kz= New_CloseStrobe();
-            if(kz==true){
-                result="设备关闸成功";
-            }
-            else{
-                result="设备关闸失败";
-            }
-            logout();
-            return new RespEntity(RespCode.SUCCESS,result);
-        }
-        else{
-            result="设备登录失败";
-            return new RespEntity(RespCode.FAIL,result);
-        }
-    }
-
-
-    @PostMapping("/dahuawhite")
-    public  RespEntity dahuawhite(@ApiParam(value = "csv文件", required = true) @RequestParam("file") MultipartFile file){
-        logger.info("进入上传接口");
-        if (file.isEmpty()) {
-            logger.info("上传文件不能为空！");
-        }
-       // netsdk.CLIENT_FileTransmit(m_hLoginHandle,0x0003, )
-        return  new RespEntity(RespCode.SUCCESS,"执行成功！");
-
-
-
-    }
-
-    /////////////////面板///////////////////
-    // 设备断线回调: 通过 CLIENT_Init 设置该回调函数，当设备出现断线时，SDK会调用该函数
-    private static class DisConnect implements NetSDKLib.fDisConnect {
-        public void invoke(NetSDKLib.LLong m_hLoginHandle, String pchDVRIP, int nDVRPort, Pointer dwUser) {
-            logger.info("ReConnect Device["+pchDVRIP+"] Port["+nDVRPort+"]",pchDVRIP, nDVRPort);
-            System.out.printf("Device[%s] Port[%d] DisConnect!\n", pchDVRIP, nDVRPort);
-
-        }
-    }
-
-    // 网络连接恢复，设备重连成功回调
-    // 通过 CLIENT_SetAutoReconnect 设置该回调函数，当已断线的设备重连成功时，SDK会调用该函数
-    private static class HaveReConnect implements NetSDKLib.fHaveReConnect {
-        public void invoke(NetSDKLib.LLong m_hLoginHandle, String pchDVRIP, int nDVRPort, Pointer dwUser) {
-            logger.info("ReConnect Device["+pchDVRIP+"] Port["+nDVRPort+"]",pchDVRIP, nDVRPort);
-            System.out.printf("ReConnect Device[%s] Port[%d]\n", pchDVRIP, nDVRPort);
-
-        }
-    }
-
-
-    /**
-     * \if ENGLISH_LANG
-     * Login Device
-     * \else
-     * 登录设备
-     * \endif
-     */
-    public static boolean login_dh(String m_strIp, int m_nPort, String m_strUser, String m_strPassword) {
-        IntByReference nError = new IntByReference(0);
-        m_hLoginHandle = netsdk.CLIENT_LoginEx2(m_strIp, m_nPort, m_strUser, m_strPassword, 0, null, m_stDeviceInfo, nError);
-        if(m_hLoginHandle.longValue() == 0) {
-            System.err.printf("Login Device[%s] Port[%d]Failed. %s\n", m_strIp, m_nPort, "\n{error code: (0x80000000|" + (netsdk.CLIENT_GetLastError() & 0x7fffffff) +").参考  NetSDKLib.java }"
-                    + " - {error info:" + ErrorCode.getErrorCode(netsdk.CLIENT_GetLastError()) + "}\n");
-        } else {
-            System.out.println("Login Success [ " + m_strIp + " ]");
-        }
-
-        return m_hLoginHandle.longValue() == 0? false:true;
-    }
-
-
-    /**
-     * 新版本开闸
-     */
-    public static boolean New_OpenStrobe() {
-        NetSDKLib.NET_CTRL_OPEN_STROBE openStrobe = new NetSDKLib.NET_CTRL_OPEN_STROBE();
-        openStrobe.nChannelId = 0;
-        //String plate = new String("浙A888888");
-        String plate=new String("");
-        System.out.println("plate:"+plate);
-
-        System.arraycopy(plate.getBytes(), 0, openStrobe.szPlateNumber, 0, plate.getBytes().length);
-        openStrobe.write();
-        if (netsdk.CLIENT_ControlDeviceEx(m_hLoginHandle, NetSDKLib.CtrlType.CTRLTYPE_CTRL_OPEN_STROBE, openStrobe.getPointer(), null, 3000)) {
-            System.out.println("Open Success!");
-        } else {
-            System.err.println("Failed to Open.");
-            return false;
-        }
-        openStrobe.read();
-
-        return true;
-    }
-
-    /**
-     * 新版本关闸
-     */
-    public static boolean New_CloseStrobe() {
-        NetSDKLib.NET_CTRL_CLOSE_STROBE closeStrobe = new NetSDKLib.NET_CTRL_CLOSE_STROBE();
-        closeStrobe.nChannelId = 0;
-        closeStrobe.write();
-        if (netsdk.CLIENT_ControlDeviceEx(m_hLoginHandle, NetSDKLib.CtrlType.CTRLTYPE_CTRL_CLOSE_STROBE, closeStrobe.getPointer(), null, 3000)) {
-            System.out.println("Close Success!");
-        } else {
-            System.err.println("Failed to Close.");
-            return false;
-        }
-        closeStrobe.read();
-
-        return true;
-    }
-
-
-    /**
-     * \if ENGLISH_LANG
-     * Logout Device
-     * \else
-     * 登出设备
-     * \endif
-     */
-    public static boolean logout() {
-        if(m_hLoginHandle.longValue() == 0) {
-            return false;
-        }
-
-        boolean bRet = netsdk.CLIENT_Logout(m_hLoginHandle);
-        if(bRet) {
-            m_hLoginHandle.setValue(0);
-        }
-
-        return bRet;
-    }
 
 
 }

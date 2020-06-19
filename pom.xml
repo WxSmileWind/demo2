@@ -18,6 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <docker.image.prefix>wuxiao</docker.image.prefix>
     </properties>
     <dependencies>
         <dependency>
@@ -27,7 +28,6 @@
             <scope>system</scope>
             <systemPath>${pom.basedir}/libs/jna.jar</systemPath>
         </dependency>
-
         <dependency>
             <groupId>com.dahua</groupId>
             <artifactId>examples</artifactId>
@@ -119,13 +119,11 @@
             <artifactId>java-jwt</artifactId>
             <version>3.4.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>1.4</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
@@ -138,44 +136,24 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-shade-plugin</artifactId>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>package</phase>-->
-<!--                        -->
-<!--                        <configuration>-->
-<!--                            <transformers>-->
-<!--                                <transformer-->
-<!--                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">-->
-<!--                                    <resource>META-INF/spring.handlers</resource>-->
-<!--                                </transformer>-->
-<!--                                <transformer-->
-<!--                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
-<!--                                    <mainClass>com.example.demo.DemoApplication</mainClass>-->
-<!--                                </transformer>-->
-<!--                                <transformer-->
-<!--                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">-->
-<!--                                    <resource>META-INF/spring.schemas</resource>-->
-<!--                                </transformer>-->
-<!--                            </transformers>-->
-<!--                        </configuration>-->
-<!--                        &lt;!&ndash;                        <configuration>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <transformers>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <mainClass>com.example.demo.DemoApplication</mainClass>&ndash;&gt;-->
-<!--&lt;!&ndash;                                </transformer>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <transformer&ndash;&gt;-->
-<!--&lt;!&ndash;                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <resource>META-INF/spring.schemas</resource>&ndash;&gt;-->
-<!--&lt;!&ndash;                                </transformer>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </transformers>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </configuration>&ndash;&gt;-->
-<!--                    </execution>-->
-<!--                </executions>-->
-
             </plugin>
-
+             <plugin>
+                 <groupId>com.spotify</groupId>
+                 <artifactId>docker-maven-plugin</artifactId>
+                 <version>1.0.0</version>
+                 <configuration>
+                     <imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
+                     <dockerHost>http://192.168.0.126:2375</dockerHost>
+                     <dockerDirectory>/</dockerDirectory>
+                     <resources>
+                         <resources>
+                         <targetPath>/</targetPath>
+                         <directory>${project.build.directory}</directory>
+                         <include>${project.build.finalName}.jar</include>
+                         </resources>
+                     </resources>
+                 </configuration>
+             </plugin>
         </plugins>
     </build>
 </project>

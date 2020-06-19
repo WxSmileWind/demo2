@@ -1,4 +1,5 @@
 package com.example.demo.dao;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.demo.pojo.TbMessage;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Mapper;
@@ -12,7 +13,7 @@ import java.util.List;
  */
 @Mapper
 @Repository
-public interface TbMessageMapper {
+public interface TbMessageMapper extends BaseMapper<TbMessage> {
 
     /**
      * 新增

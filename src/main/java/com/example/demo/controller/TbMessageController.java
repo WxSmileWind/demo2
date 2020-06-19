@@ -85,6 +85,8 @@ public class TbMessageController {
                                         @RequestParam(required = false, defaultValue = "10") int pagesize) {
         System.out.println("currentpage:"+currentpage);
         System.out.println("pagesize:"+pagesize);
+
+        //tbMessageService.pa
         return tbMessageService.pageList(currentpage, pagesize,username);
     }
 

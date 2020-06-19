@@ -75,7 +75,7 @@ public class Utils {
 		if(osPrefix.toLowerCase().startsWith("win32-x86")) {
 			loadLibrary = "./libs/win32/";
 		} else if(osPrefix.toLowerCase().startsWith("win32-amd64") ) {
-			loadLibrary = "../libs/win64/";
+			loadLibrary = "./libs/win64/";
 		} else if(osPrefix.toLowerCase().startsWith("linux-i386")) {
 			loadLibrary = "";
 		}else if(osPrefix.toLowerCase().startsWith("linux-amd64")) {

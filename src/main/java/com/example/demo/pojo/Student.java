@@ -2,9 +2,11 @@ package com.example.demo.pojo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 import javax.persistence.Transient;
 import java.io.Serializable;
@@ -25,8 +27,11 @@ public class Student implements Serializable {
     private String password;
     private Integer age;
     private String sex;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")  //JsonFormat   时间格式化
+    /*@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")  //JsonFormat   时间格式化*/
+    @JsonFormat(pattern ="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    @ApiModelProperty(example = "2020-03-31 22:00:00")
     private Date birthday;
+    @ApiModelProperty( hidden = true)
     private List<Others> others;
 
     //以下是需要通过查询其它表得到的字段信息
@@ -34,6 +39,7 @@ public class Student implements Serializable {
      * Transident  注解表示非实体表的字段；
      */
     @Transient
+    @ApiModelProperty( hidden = true)
     private String countothers;//外表字段
 
     public void setCountothers(String countothers) {
@@ -89,6 +95,10 @@ public class Student implements Serializable {
 
     public List<Others> getOthers() {
         return others;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     /* getter and setter */
