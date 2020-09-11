@@ -6,16 +6,45 @@ menu:
     zipUrl: http://39.104.123.82:12604/img/menu/
     uploadPath: C:\uploadimgs\
     uploadUrl: http://localhost:8086/uploadpic/
+user:
+  dir:D:\后端项目\spxm
 spring:
   mvc:
     throw-exception-if-no-handler-found: true
-  resources:
-#    add-mappings: false
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8
-    username: root
-    password: 123456
-    driver-class-name: com.mysql.jdbc.Driver
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+      datasource:
+        master:
+          url: jdbc:mysql://10.68.128.150:3306/nbgrid?characterEncoding=UTF-8
+          username: yyzx_view
+          password: yyzx456
+
+          driver-class-name: com.mysql.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+        slave_1:
+          url: jdbc:mysql://10.68.129.145:3306/sgwc?characterEncoding=UTF-8
+          username: sgwc
+          password: yw321
+          driver-class-name: com.mysql.jdbc.Driver
+#        slave_2:
+#          url: ENC(xxxxx) # 内置加密,使用请查看详细文档
+#          username: ENC(xxxxx)
+#          password: ENC(xxxxx)
+#          driver-class-name: com.mysql.jdbc.Driver
+#          schema: db/schema.sql # 配置则生效,自动初始化表结构
+#          data: db/data.sql # 配置则生效,自动初始化数据
+#          continue-on-error: true # 默认true,初始化失败是否继续
+#          separator: ";" # sql默认分号分隔符
+  #resources:
+#    add-mappings: false
+#  datasource:
+#    #E宁波从库数据库地址及账号密码
+#    url: jdbc:mysql://10.68.128.150:3306/nbgrid?characterEncoding=UTF-8
+#    username: yyzx_view
+#    password: yyzx456
+#    driver-class-name: com.mysql.jdbc.Driver
+#    #driver-class-name: com.mysql.cj.jdbc.Driver
   jackson:
     time-zone: GMT+8
   servlet:
@@ -24,12 +53,16 @@ spring:
       max-file-size: 10MB
       #总数据的大小
       max-request-size: 10MB
-
-mybatis:
+#mybatis:
+#  mapper-locations: classpath:/mapper/*.xml
+#  type-aliases-package: com.example.demo.pojo
+#  configuration:
+#    #驼峰配置
+#    map-underscore-to-camel-case: false
+mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
   type-aliases-package: com.example.demo.pojo
   configuration:
-    #驼峰配置
     map-underscore-to-camel-case: false
 #swagger 配置
 swagger:

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_3_0.dtd">
+<generatorConfiguration>
+
+<!--数据库驱动包路径 -->
+<classPathEntry location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.21\mysql-connector-java-5.1.21.jar"/>
+<context id="DB2Tables" targetRuntime="MyBatis3">
+<!--关闭注释 -->
+<commentGenerator>
+    <property name="suppressAllComments" value="true"/>
+</commentGenerator>
+
+<!--数据库连接信息 -->
+<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://10.68.128.150:3306/nbgrid?characterEncoding=utf-8"
+                userId="yyzx_view" password="yyzx456">
+</jdbcConnection>
+
+
+
+<!--生成的model 包路径 -->
+<javaModelGenerator targetPackage="com.example.demo.pojo" targetProject="src/main/java">
+    <property name="enableSubPackages" value="true"/>
+    <property name="trimStrings" value="false"/>
+</javaModelGenerator>
+
+<!--生成xml mapper文件 路径 -->
+<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+    <property name="enableSubPackages" value="true"/>
+</sqlMapGenerator>
+
+<!-- 生成的Dao接口 的包路径 -->
+<javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.dao" targetProject="src/main/java">
+    <property name="enableSubPackages" value="true"/>
+</javaClientGenerator>
+
+
+<!--对应数据库表名 tableName数据库表名称，domainObjectName生成model类的名称 -->
+<table tableName="grid_event_event" domainObjectName="Event" enableCountByExample="false"
+       enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+    <property name="useActualColumnNames" value="true"/>
+</table>
+
+</context>
+</generatorConfiguration>

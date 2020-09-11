@@ -1,7 +1,7 @@
 package com.example.demo.Response_Message;
 
 public enum RespCode {
-    SUCCESS(0, "请求成功"),
+    SUCCESS(200, "请求成功"),
     FAIL(-1, "请求失败"),
     FAILCODE(-1, "请求失败，缺少必要参数"),
     PassToken(0, "您已通过token验证"),

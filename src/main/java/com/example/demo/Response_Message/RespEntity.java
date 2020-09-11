@@ -5,6 +5,7 @@ public class RespEntity {
     private int code;
     private String msg;
     private Object data;
+    private Integer total;
 
     public RespEntity(RespCode respCode) {
         this.code = respCode.getCode();
@@ -33,5 +34,11 @@ public class RespEntity {
     }
     public String getMsg() {
         return msg;
+    }
+    public Integer getTotal() {
+        return total;
+    }
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 }

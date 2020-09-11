@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.EventMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Event">
+    <id column="ID" jdbcType="VARCHAR" property="ID" />
+    <result column="C_NUMBER" jdbcType="VARCHAR" property="c_NUMBER" />
+    <result column="C_TYPE" jdbcType="VARCHAR" property="c_TYPE" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="ADDRESS" />
+    <result column="COORDINATEX" jdbcType="VARCHAR" property="COORDINATEX" />
+    <result column="COORDINATEY" jdbcType="VARCHAR" property="COORDINATEY" />
+    <result column="ORGUID" jdbcType="VARCHAR" property="ORGUID" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="userId" jdbcType="VARCHAR" property="userId" />
+    <result column="CREATETIME" jdbcType="BIGINT" property="CREATETIME" />
+    <result column="UPDATETIME" jdbcType="BIGINT" property="UPDATETIME" />
+    <result column="C_STATUS" jdbcType="VARCHAR" property="c_STATUS" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="SOURCE" />
+    <result column="endTime" jdbcType="BIGINT" property="endTime" />
+    <result column="emergency" jdbcType="VARCHAR" property="emergency" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="showStatus" jdbcType="VARCHAR" property="showStatus" />
+    <result column="isKeyPlace" jdbcType="VARCHAR" property="isKeyPlace" />
+    <result column="eventFoundTime" jdbcType="BIGINT" property="eventFoundTime" />
+    <result column="involvePeoNum" jdbcType="VARCHAR" property="involvePeoNum" />
+    <result column="eventScaleType" jdbcType="VARCHAR" property="eventScaleType" />
+    <result column="isImportant" jdbcType="VARCHAR" property="isImportant" />
+    <result column="keyPeople" jdbcType="VARCHAR" property="keyPeople" />
+    <result column="finishtime" jdbcType="BIGINT" property="finishtime" />
+    <result column="deviceSource" jdbcType="VARCHAR" property="deviceSource" />
+    <result column="subType" jdbcType="VARCHAR" property="subType" />
+    <result column="eventLevel" jdbcType="VARCHAR" property="eventLevel" />
+    <result column="isszz" jdbcType="VARCHAR" property="isszz" />
+    <result column="isSyncToSzz" jdbcType="INTEGER" property="isSyncToSzz" />
+    <result column="snumber" jdbcType="VARCHAR" property="snumber" />
+    <result column="isHt" jdbcType="VARCHAR" property="isHt" />
+    <result column="isDelete" jdbcType="VARCHAR" property="isDelete" />
+    <result column="activeOrgUid" jdbcType="VARCHAR" property="activeOrgUid" />
+    <result column="isDoSelf" jdbcType="VARCHAR" property="isDoSelf" />
+    <result column="syncStateJfmt" jdbcType="VARCHAR" property="syncStateJfmt" />
+    <result column="outSystem" jdbcType="VARCHAR" property="outSystem" />
+    <result column="outSystemDealStatus" jdbcType="INTEGER" property="outSystemDealStatus" />
+    <result column="xtStatus" jdbcType="VARCHAR" property="xtStatus" />
+    <result column="isXt" jdbcType="INTEGER" property="isXt" />
+    <result column="xtWhereto" jdbcType="VARCHAR" property="xtWhereto" />
+    <result column="reporterName" jdbcType="VARCHAR" property="reporterName" />
+    <result column="reporterPhone" jdbcType="VARCHAR" property="reporterPhone" />
+    <result column="bzType" jdbcType="VARCHAR" property="bzType" />
+    <result column="bzContent" jdbcType="VARCHAR" property="bzContent" />
+    <result column="bzFinishDate" jdbcType="VARCHAR" property="bzFinishDate" />
+    <result column="bzLinkEvent" jdbcType="VARCHAR" property="bzLinkEvent" />
+    <result column="dispatchZjName" jdbcType="VARCHAR" property="dispatchZjName" />
+    <result column="isLinkFzwt" jdbcType="INTEGER" property="isLinkFzwt" />
+    <result column="khKhyx" jdbcType="VARCHAR" property="khKhyx" />
+    <result column="khZsyx" jdbcType="VARCHAR" property="khZsyx" />
+    <result column="khTpyx" jdbcType="VARCHAR" property="khTpyx" />
+    <result column="finishInTime" jdbcType="VARCHAR" property="finishInTime" />
+    <result column="accessIdentity" jdbcType="VARCHAR" property="accessIdentity" />
+    <result column="star" jdbcType="DOUBLE" property="star" />
+    <result column="stableType" jdbcType="INTEGER" property="stableType" />
+    <result column="securityCarePoint" jdbcType="INTEGER" property="securityCarePoint" />
+    <result column="oldType" jdbcType="VARCHAR" property="oldType" />
+    <result column="oldSubType" jdbcType="VARCHAR" property="oldSubType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, C_NUMBER, C_TYPE, content, ADDRESS, COORDINATEX, COORDINATEY, ORGUID, userName, 
+    userId, CREATETIME, UPDATETIME, C_STATUS, SOURCE, endTime, emergency, title, showStatus, 
+    isKeyPlace, eventFoundTime, involvePeoNum, eventScaleType, isImportant, keyPeople, 
+    finishtime, deviceSource, subType, eventLevel, isszz, isSyncToSzz, snumber, isHt, 
+    isDelete, activeOrgUid, isDoSelf, syncStateJfmt, outSystem, outSystemDealStatus, 
+    xtStatus, isXt, xtWhereto, reporterName, reporterPhone, bzType, bzContent, bzFinishDate, 
+    bzLinkEvent, dispatchZjName, isLinkFzwt, khKhyx, khZsyx, khTpyx, finishInTime, accessIdentity, 
+    star, stableType, securityCarePoint, oldType, oldSubType
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from grid_event_event
+    where ID = #{ID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from grid_event_event
+    where ID = #{ID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.pojo.Event">
+    insert into grid_event_event (ID, C_NUMBER, C_TYPE, 
+      content, ADDRESS, COORDINATEX, 
+      COORDINATEY, ORGUID, userName, 
+      userId, CREATETIME, UPDATETIME, 
+      C_STATUS, SOURCE, endTime, 
+      emergency, title, showStatus, 
+      isKeyPlace, eventFoundTime, involvePeoNum, 
+      eventScaleType, isImportant, keyPeople, 
+      finishtime, deviceSource, subType, 
+      eventLevel, isszz, isSyncToSzz, 
+      snumber, isHt, isDelete, 
+      activeOrgUid, isDoSelf, syncStateJfmt, 
+      outSystem, outSystemDealStatus, xtStatus, 
+      isXt, xtWhereto, reporterName, 
+      reporterPhone, bzType, bzContent, 
+      bzFinishDate, bzLinkEvent, dispatchZjName, 
+      isLinkFzwt, khKhyx, khZsyx, 
+      khTpyx, finishInTime, accessIdentity, 
+      star, stableType, securityCarePoint, 
+      oldType, oldSubType)
+    values (#{ID,jdbcType=VARCHAR}, #{c_NUMBER,jdbcType=VARCHAR}, #{c_TYPE,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{ADDRESS,jdbcType=VARCHAR}, #{COORDINATEX,jdbcType=VARCHAR}, 
+      #{COORDINATEY,jdbcType=VARCHAR}, #{ORGUID,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{CREATETIME,jdbcType=BIGINT}, #{UPDATETIME,jdbcType=BIGINT}, 
+      #{c_STATUS,jdbcType=VARCHAR}, #{SOURCE,jdbcType=VARCHAR}, #{endTime,jdbcType=BIGINT}, 
+      #{emergency,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{showStatus,jdbcType=VARCHAR}, 
+      #{isKeyPlace,jdbcType=VARCHAR}, #{eventFoundTime,jdbcType=BIGINT}, #{involvePeoNum,jdbcType=VARCHAR}, 
+      #{eventScaleType,jdbcType=VARCHAR}, #{isImportant,jdbcType=VARCHAR}, #{keyPeople,jdbcType=VARCHAR}, 
+      #{finishtime,jdbcType=BIGINT}, #{deviceSource,jdbcType=VARCHAR}, #{subType,jdbcType=VARCHAR}, 
+      #{eventLevel,jdbcType=VARCHAR}, #{isszz,jdbcType=VARCHAR}, #{isSyncToSzz,jdbcType=INTEGER}, 
+      #{snumber,jdbcType=VARCHAR}, #{isHt,jdbcType=VARCHAR}, #{isDelete,jdbcType=VARCHAR}, 
+      #{activeOrgUid,jdbcType=VARCHAR}, #{isDoSelf,jdbcType=VARCHAR}, #{syncStateJfmt,jdbcType=VARCHAR}, 
+      #{outSystem,jdbcType=VARCHAR}, #{outSystemDealStatus,jdbcType=INTEGER}, #{xtStatus,jdbcType=VARCHAR}, 
+      #{isXt,jdbcType=INTEGER}, #{xtWhereto,jdbcType=VARCHAR}, #{reporterName,jdbcType=VARCHAR}, 
+      #{reporterPhone,jdbcType=VARCHAR}, #{bzType,jdbcType=VARCHAR}, #{bzContent,jdbcType=VARCHAR}, 
+      #{bzFinishDate,jdbcType=VARCHAR}, #{bzLinkEvent,jdbcType=VARCHAR}, #{dispatchZjName,jdbcType=VARCHAR}, 
+      #{isLinkFzwt,jdbcType=INTEGER}, #{khKhyx,jdbcType=VARCHAR}, #{khZsyx,jdbcType=VARCHAR}, 
+      #{khTpyx,jdbcType=VARCHAR}, #{finishInTime,jdbcType=VARCHAR}, #{accessIdentity,jdbcType=VARCHAR}, 
+      #{star,jdbcType=DOUBLE}, #{stableType,jdbcType=INTEGER}, #{securityCarePoint,jdbcType=INTEGER}, 
+      #{oldType,jdbcType=VARCHAR}, #{oldSubType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.Event">
+    insert into grid_event_event
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="c_NUMBER != null">
+        C_NUMBER,
+      </if>
+      <if test="c_TYPE != null">
+        C_TYPE,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="ADDRESS != null">
+        ADDRESS,
+      </if>
+      <if test="COORDINATEX != null">
+        COORDINATEX,
+      </if>
+      <if test="COORDINATEY != null">
+        COORDINATEY,
+      </if>
+      <if test="ORGUID != null">
+        ORGUID,
+      </if>
+      <if test="userName != null">
+        userName,
+      </if>
+      <if test="userId != null">
+        userId,
+      </if>
+      <if test="CREATETIME != null">
+        CREATETIME,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="c_STATUS != null">
+        C_STATUS,
+      </if>
+      <if test="SOURCE != null">
+        SOURCE,
+      </if>
+      <if test="endTime != null">
+        endTime,
+      </if>
+      <if test="emergency != null">
+        emergency,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="showStatus != null">
+        showStatus,
+      </if>
+      <if test="isKeyPlace != null">
+        isKeyPlace,
+      </if>
+      <if test="eventFoundTime != null">
+        eventFoundTime,
+      </if>
+      <if test="involvePeoNum != null">
+        involvePeoNum,
+      </if>
+      <if test="eventScaleType != null">
+        eventScaleType,
+      </if>
+      <if test="isImportant != null">
+        isImportant,
+      </if>
+      <if test="keyPeople != null">
+        keyPeople,
+      </if>
+      <if test="finishtime != null">
+        finishtime,
+      </if>
+      <if test="deviceSource != null">
+        deviceSource,
+      </if>
+      <if test="subType != null">
+        subType,
+      </if>
+      <if test="eventLevel != null">
+        eventLevel,
+      </if>
+      <if test="isszz != null">
+        isszz,
+      </if>
+      <if test="isSyncToSzz != null">
+        isSyncToSzz,
+      </if>
+      <if test="snumber != null">
+        snumber,
+      </if>
+      <if test="isHt != null">
+        isHt,
+      </if>
+      <if test="isDelete != null">
+        isDelete,
+      </if>
+      <if test="activeOrgUid != null">
+        activeOrgUid,
+      </if>
+      <if test="isDoSelf != null">
+        isDoSelf,
+      </if>
+      <if test="syncStateJfmt != null">
+        syncStateJfmt,
+      </if>
+      <if test="outSystem != null">
+        outSystem,
+      </if>
+      <if test="outSystemDealStatus != null">
+        outSystemDealStatus,
+      </if>
+      <if test="xtStatus != null">
+        xtStatus,
+      </if>
+      <if test="isXt != null">
+        isXt,
+      </if>
+      <if test="xtWhereto != null">
+        xtWhereto,
+      </if>
+      <if test="reporterName != null">
+        reporterName,
+      </if>
+      <if test="reporterPhone != null">
+        reporterPhone,
+      </if>
+      <if test="bzType != null">
+        bzType,
+      </if>
+      <if test="bzContent != null">
+        bzContent,
+      </if>
+      <if test="bzFinishDate != null">
+        bzFinishDate,
+      </if>
+      <if test="bzLinkEvent != null">
+        bzLinkEvent,
+      </if>
+      <if test="dispatchZjName != null">
+        dispatchZjName,
+      </if>
+      <if test="isLinkFzwt != null">
+        isLinkFzwt,
+      </if>
+      <if test="khKhyx != null">
+        khKhyx,
+      </if>
+      <if test="khZsyx != null">
+        khZsyx,
+      </if>
+      <if test="khTpyx != null">
+        khTpyx,
+      </if>
+      <if test="finishInTime != null">
+        finishInTime,
+      </if>
+      <if test="accessIdentity != null">
+        accessIdentity,
+      </if>
+      <if test="star != null">
+        star,
+      </if>
+      <if test="stableType != null">
+        stableType,
+      </if>
+      <if test="securityCarePoint != null">
+        securityCarePoint,
+      </if>
+      <if test="oldType != null">
+        oldType,
+      </if>
+      <if test="oldSubType != null">
+        oldSubType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=VARCHAR},
+      </if>
+      <if test="c_NUMBER != null">
+        #{c_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="c_TYPE != null">
+        #{c_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="ADDRESS != null">
+        #{ADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="COORDINATEX != null">
+        #{COORDINATEX,jdbcType=VARCHAR},
+      </if>
+      <if test="COORDINATEY != null">
+        #{COORDINATEY,jdbcType=VARCHAR},
+      </if>
+      <if test="ORGUID != null">
+        #{ORGUID,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATETIME != null">
+        #{CREATETIME,jdbcType=BIGINT},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=BIGINT},
+      </if>
+      <if test="c_STATUS != null">
+        #{c_STATUS,jdbcType=VARCHAR},
+      </if>
+      <if test="SOURCE != null">
+        #{SOURCE,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=BIGINT},
+      </if>
+      <if test="emergency != null">
+        #{emergency,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="showStatus != null">
+        #{showStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isKeyPlace != null">
+        #{isKeyPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="eventFoundTime != null">
+        #{eventFoundTime,jdbcType=BIGINT},
+      </if>
+      <if test="involvePeoNum != null">
+        #{involvePeoNum,jdbcType=VARCHAR},
+      </if>
+      <if test="eventScaleType != null">
+        #{eventScaleType,jdbcType=VARCHAR},
+      </if>
+      <if test="isImportant != null">
+        #{isImportant,jdbcType=VARCHAR},
+      </if>
+      <if test="keyPeople != null">
+        #{keyPeople,jdbcType=VARCHAR},
+      </if>
+      <if test="finishtime != null">
+        #{finishtime,jdbcType=BIGINT},
+      </if>
+      <if test="deviceSource != null">
+        #{deviceSource,jdbcType=VARCHAR},
+      </if>
+      <if test="subType != null">
+        #{subType,jdbcType=VARCHAR},
+      </if>
+      <if test="eventLevel != null">
+        #{eventLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="isszz != null">
+        #{isszz,jdbcType=VARCHAR},
+      </if>
+      <if test="isSyncToSzz != null">
+        #{isSyncToSzz,jdbcType=INTEGER},
+      </if>
+      <if test="snumber != null">
+        #{snumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isHt != null">
+        #{isHt,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="activeOrgUid != null">
+        #{activeOrgUid,jdbcType=VARCHAR},
+      </if>
+      <if test="isDoSelf != null">
+        #{isDoSelf,jdbcType=VARCHAR},
+      </if>
+      <if test="syncStateJfmt != null">
+        #{syncStateJfmt,jdbcType=VARCHAR},
+      </if>
+      <if test="outSystem != null">
+        #{outSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="outSystemDealStatus != null">
+        #{outSystemDealStatus,jdbcType=INTEGER},
+      </if>
+      <if test="xtStatus != null">
+        #{xtStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isXt != null">
+        #{isXt,jdbcType=INTEGER},
+      </if>
+      <if test="xtWhereto != null">
+        #{xtWhereto,jdbcType=VARCHAR},
+      </if>
+      <if test="reporterName != null">
+        #{reporterName,jdbcType=VARCHAR},
+      </if>
+      <if test="reporterPhone != null">
+        #{reporterPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="bzType != null">
+        #{bzType,jdbcType=VARCHAR},
+      </if>
+      <if test="bzContent != null">
+        #{bzContent,jdbcType=VARCHAR},
+      </if>
+      <if test="bzFinishDate != null">
+        #{bzFinishDate,jdbcType=VARCHAR},
+      </if>
+      <if test="bzLinkEvent != null">
+        #{bzLinkEvent,jdbcType=VARCHAR},
+      </if>
+      <if test="dispatchZjName != null">
+        #{dispatchZjName,jdbcType=VARCHAR},
+      </if>
+      <if test="isLinkFzwt != null">
+        #{isLinkFzwt,jdbcType=INTEGER},
+      </if>
+      <if test="khKhyx != null">
+        #{khKhyx,jdbcType=VARCHAR},
+      </if>
+      <if test="khZsyx != null">
+        #{khZsyx,jdbcType=VARCHAR},
+      </if>
+      <if test="khTpyx != null">
+        #{khTpyx,jdbcType=VARCHAR},
+      </if>
+      <if test="finishInTime != null">
+        #{finishInTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accessIdentity != null">
+        #{accessIdentity,jdbcType=VARCHAR},
+      </if>
+      <if test="star != null">
+        #{star,jdbcType=DOUBLE},
+      </if>
+      <if test="stableType != null">
+        #{stableType,jdbcType=INTEGER},
+      </if>
+      <if test="securityCarePoint != null">
+        #{securityCarePoint,jdbcType=INTEGER},
+      </if>
+      <if test="oldType != null">
+        #{oldType,jdbcType=VARCHAR},
+      </if>
+      <if test="oldSubType != null">
+        #{oldSubType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.pojo.Event">
+    update grid_event_event
+    <set>
+      <if test="c_NUMBER != null">
+        C_NUMBER = #{c_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="c_TYPE != null">
+        C_TYPE = #{c_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="ADDRESS != null">
+        ADDRESS = #{ADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="COORDINATEX != null">
+        COORDINATEX = #{COORDINATEX,jdbcType=VARCHAR},
+      </if>
+      <if test="COORDINATEY != null">
+        COORDINATEY = #{COORDINATEY,jdbcType=VARCHAR},
+      </if>
+      <if test="ORGUID != null">
+        ORGUID = #{ORGUID,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        userName = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        userId = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATETIME != null">
+        CREATETIME = #{CREATETIME,jdbcType=BIGINT},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=BIGINT},
+      </if>
+      <if test="c_STATUS != null">
+        C_STATUS = #{c_STATUS,jdbcType=VARCHAR},
+      </if>
+      <if test="SOURCE != null">
+        SOURCE = #{SOURCE,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        endTime = #{endTime,jdbcType=BIGINT},
+      </if>
+      <if test="emergency != null">
+        emergency = #{emergency,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="showStatus != null">
+        showStatus = #{showStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isKeyPlace != null">
+        isKeyPlace = #{isKeyPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="eventFoundTime != null">
+        eventFoundTime = #{eventFoundTime,jdbcType=BIGINT},
+      </if>
+      <if test="involvePeoNum != null">
+        involvePeoNum = #{involvePeoNum,jdbcType=VARCHAR},
+      </if>
+      <if test="eventScaleType != null">
+        eventScaleType = #{eventScaleType,jdbcType=VARCHAR},
+      </if>
+      <if test="isImportant != null">
+        isImportant = #{isImportant,jdbcType=VARCHAR},
+      </if>
+      <if test="keyPeople != null">
+        keyPeople = #{keyPeople,jdbcType=VARCHAR},
+      </if>
+      <if test="finishtime != null">
+        finishtime = #{finishtime,jdbcType=BIGINT},
+      </if>
+      <if test="deviceSource != null">
+        deviceSource = #{deviceSource,jdbcType=VARCHAR},
+      </if>
+      <if test="subType != null">
+        subType = #{subType,jdbcType=VARCHAR},
+      </if>
+      <if test="eventLevel != null">
+        eventLevel = #{eventLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="isszz != null">
+        isszz = #{isszz,jdbcType=VARCHAR},
+      </if>
+      <if test="isSyncToSzz != null">
+        isSyncToSzz = #{isSyncToSzz,jdbcType=INTEGER},
+      </if>
+      <if test="snumber != null">
+        snumber = #{snumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isHt != null">
+        isHt = #{isHt,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        isDelete = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="activeOrgUid != null">
+        activeOrgUid = #{activeOrgUid,jdbcType=VARCHAR},
+      </if>
+      <if test="isDoSelf != null">
+        isDoSelf = #{isDoSelf,jdbcType=VARCHAR},
+      </if>
+      <if test="syncStateJfmt != null">
+        syncStateJfmt = #{syncStateJfmt,jdbcType=VARCHAR},
+      </if>
+      <if test="outSystem != null">
+        outSystem = #{outSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="outSystemDealStatus != null">
+        outSystemDealStatus = #{outSystemDealStatus,jdbcType=INTEGER},
+      </if>
+      <if test="xtStatus != null">
+        xtStatus = #{xtStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isXt != null">
+        isXt = #{isXt,jdbcType=INTEGER},
+      </if>
+      <if test="xtWhereto != null">
+        xtWhereto = #{xtWhereto,jdbcType=VARCHAR},
+      </if>
+      <if test="reporterName != null">
+        reporterName = #{reporterName,jdbcType=VARCHAR},
+      </if>
+      <if test="reporterPhone != null">
+        reporterPhone = #{reporterPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="bzType != null">
+        bzType = #{bzType,jdbcType=VARCHAR},
+      </if>
+      <if test="bzContent != null">
+        bzContent = #{bzContent,jdbcType=VARCHAR},
+      </if>
+      <if test="bzFinishDate != null">
+        bzFinishDate = #{bzFinishDate,jdbcType=VARCHAR},
+      </if>
+      <if test="bzLinkEvent != null">
+        bzLinkEvent = #{bzLinkEvent,jdbcType=VARCHAR},
+      </if>
+      <if test="dispatchZjName != null">
+        dispatchZjName = #{dispatchZjName,jdbcType=VARCHAR},
+      </if>
+      <if test="isLinkFzwt != null">
+        isLinkFzwt = #{isLinkFzwt,jdbcType=INTEGER},
+      </if>
+      <if test="khKhyx != null">
+        khKhyx = #{khKhyx,jdbcType=VARCHAR},
+      </if>
+      <if test="khZsyx != null">
+        khZsyx = #{khZsyx,jdbcType=VARCHAR},
+      </if>
+      <if test="khTpyx != null">
+        khTpyx = #{khTpyx,jdbcType=VARCHAR},
+      </if>
+      <if test="finishInTime != null">
+        finishInTime = #{finishInTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accessIdentity != null">
+        accessIdentity = #{accessIdentity,jdbcType=VARCHAR},
+      </if>
+      <if test="star != null">
+        star = #{star,jdbcType=DOUBLE},
+      </if>
+      <if test="stableType != null">
+        stableType = #{stableType,jdbcType=INTEGER},
+      </if>
+      <if test="securityCarePoint != null">
+        securityCarePoint = #{securityCarePoint,jdbcType=INTEGER},
+      </if>
+      <if test="oldType != null">
+        oldType = #{oldType,jdbcType=VARCHAR},
+      </if>
+      <if test="oldSubType != null">
+        oldSubType = #{oldSubType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.pojo.Event">
+    update grid_event_event
+    set C_NUMBER = #{c_NUMBER,jdbcType=VARCHAR},
+      C_TYPE = #{c_TYPE,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      ADDRESS = #{ADDRESS,jdbcType=VARCHAR},
+      COORDINATEX = #{COORDINATEX,jdbcType=VARCHAR},
+      COORDINATEY = #{COORDINATEY,jdbcType=VARCHAR},
+      ORGUID = #{ORGUID,jdbcType=VARCHAR},
+      userName = #{userName,jdbcType=VARCHAR},
+      userId = #{userId,jdbcType=VARCHAR},
+      CREATETIME = #{CREATETIME,jdbcType=BIGINT},
+      UPDATETIME = #{UPDATETIME,jdbcType=BIGINT},
+      C_STATUS = #{c_STATUS,jdbcType=VARCHAR},
+      SOURCE = #{SOURCE,jdbcType=VARCHAR},
+      endTime = #{endTime,jdbcType=BIGINT},
+      emergency = #{emergency,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      showStatus = #{showStatus,jdbcType=VARCHAR},
+      isKeyPlace = #{isKeyPlace,jdbcType=VARCHAR},
+      eventFoundTime = #{eventFoundTime,jdbcType=BIGINT},
+      involvePeoNum = #{involvePeoNum,jdbcType=VARCHAR},
+      eventScaleType = #{eventScaleType,jdbcType=VARCHAR},
+      isImportant = #{isImportant,jdbcType=VARCHAR},
+      keyPeople = #{keyPeople,jdbcType=VARCHAR},
+      finishtime = #{finishtime,jdbcType=BIGINT},
+      deviceSource = #{deviceSource,jdbcType=VARCHAR},
+      subType = #{subType,jdbcType=VARCHAR},
+      eventLevel = #{eventLevel,jdbcType=VARCHAR},
+      isszz = #{isszz,jdbcType=VARCHAR},
+      isSyncToSzz = #{isSyncToSzz,jdbcType=INTEGER},
+      snumber = #{snumber,jdbcType=VARCHAR},
+      isHt = #{isHt,jdbcType=VARCHAR},
+      isDelete = #{isDelete,jdbcType=VARCHAR},
+      activeOrgUid = #{activeOrgUid,jdbcType=VARCHAR},
+      isDoSelf = #{isDoSelf,jdbcType=VARCHAR},
+      syncStateJfmt = #{syncStateJfmt,jdbcType=VARCHAR},
+      outSystem = #{outSystem,jdbcType=VARCHAR},
+      outSystemDealStatus = #{outSystemDealStatus,jdbcType=INTEGER},
+      xtStatus = #{xtStatus,jdbcType=VARCHAR},
+      isXt = #{isXt,jdbcType=INTEGER},
+      xtWhereto = #{xtWhereto,jdbcType=VARCHAR},
+      reporterName = #{reporterName,jdbcType=VARCHAR},
+      reporterPhone = #{reporterPhone,jdbcType=VARCHAR},
+      bzType = #{bzType,jdbcType=VARCHAR},
+      bzContent = #{bzContent,jdbcType=VARCHAR},
+      bzFinishDate = #{bzFinishDate,jdbcType=VARCHAR},
+      bzLinkEvent = #{bzLinkEvent,jdbcType=VARCHAR},
+      dispatchZjName = #{dispatchZjName,jdbcType=VARCHAR},
+      isLinkFzwt = #{isLinkFzwt,jdbcType=INTEGER},
+      khKhyx = #{khKhyx,jdbcType=VARCHAR},
+      khZsyx = #{khZsyx,jdbcType=VARCHAR},
+      khTpyx = #{khTpyx,jdbcType=VARCHAR},
+      finishInTime = #{finishInTime,jdbcType=VARCHAR},
+      accessIdentity = #{accessIdentity,jdbcType=VARCHAR},
+      star = #{star,jdbcType=DOUBLE},
+      stableType = #{stableType,jdbcType=INTEGER},
+      securityCarePoint = #{securityCarePoint,jdbcType=INTEGER},
+      oldType = #{oldType,jdbcType=VARCHAR},
+      oldSubType = #{oldSubType,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+  <select id="pageListCount" resultType="java.lang.Integer">
+    SELECT count(*)
+    FROM grid_event_event
+    <if test ='null != keyword and keyword!=""'>
+      where content like concat('%',#{keyword},'%')
+    </if>
+  </select>
+
+  <select id="pageList"  resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from grid_event_event as a
+    <if test ='null != keyword and keyword!=""'>
+      where a.content like concat('%',#{keyword},'%')
+    </if>
+    ORDER BY a.ID desc
+    LIMIT #{start}, #{pagesize}
+  </select>
+</mapper>

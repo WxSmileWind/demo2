@@ -23,10 +23,10 @@
 <!--        </collection>-->
 
     </resultMap>
-    <resultMap type="grade" id="grademap">
-        <id column="gid" property="gid"/>
-        <result column="gname" property="gname"/>
-    </resultMap>
+<!--    <resultMap type="grade" id="grademap">-->
+<!--        <id column="gid" property="gid"/>-->
+<!--        <result column="gname" property="gname"/>-->
+<!--    </resultMap>-->
     <sql id="Base_Column_List">
                 id,
                 username,

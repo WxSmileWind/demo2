@@ -3,17 +3,10 @@ import com.example.demo.DemoApplication;
 import com.example.demo.Response_Message.RespCode;
 import com.example.demo.Response_Message.RespEntity;
 import com.example.demo.annotation.UserLoginToken;
-import com.example.demo.config.ymConfig;
 import com.example.demo.dao.StudentMapper;   //引用mapper
 import com.example.demo.dao.TbMessageMapper;
-import com.example.demo.lib.ErrorCode;
-import com.example.demo.lib.NetSDKLib;
-import com.example.demo.lib.hc;
 import com.example.demo.pojo.Student;                            //引用实体类
-import com.example.demo.pojo.TbMessage;
 import com.example.demo.service.TokenService;
-import com.sun.jna.Pointer;
-import com.sun.jna.ptr.IntByReference;
 import io.swagger.annotations.*;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
@@ -24,18 +17,12 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;                //引入控制器Controller
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 @Controller                           //控制器
@@ -204,9 +191,9 @@ public class StudentController {
     @PostMapping("/login")
     public RespEntity login(@RequestBody Student student){
 
-       // Student userForBase=studentMapper.findByname(student.getName());
+        //Student userForBase=studentMapper.findByname(student.getName());
         System.out.println("password:"+student.getPassword());
-       //System.out.println("userForBase password:"+userForBase.getPassword());
+       // System.out.println("userForBase password:"+userForBase.getPassword());
         return  new RespEntity(RespCode.SUCCESS,student.getPassword());
     }
 
